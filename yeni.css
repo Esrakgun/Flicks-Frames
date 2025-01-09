@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+
+/* Genel Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Temel renkler */
+:root {
+    --main-color: #0f171e;
+    --assistant-color: #1a242e;
+    --hover-color: #314455;
+    --highlight-color: #79b8f3;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --button-hover-color: #3e617d;
+    --text-light-color: #e0e0e0;
+    --button-color: #4d8fa1;
+}
+
+/* Karanlık mod renk düzenlemeleri */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-color: #1b1f23;
+        --assistant-color: #22262a;
+        --highlight-color: #83b1e1;
+        --shadow-color: rgba(0, 0, 0, 0.35);
+        --text-light-color: #dcdcdc;
+        --button-color: #4b90b4;
+        --button-hover-color: #37678f;
+    }
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--main-color);
+    color: var(--text-light-color);
+}
+
+/* Header Stil */
+header {
+    background-color: var(--assistant-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--highlight-color);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+header h1 {
+    letter-spacing: 5px;
+    color: #fff;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    font-size: 1.5rem;
+}
+
+/* Arama Çubuğu */
+.search {
+    background-color: var(--main-color);
+    border: 2px solid var(--highlight-color);
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    width: 100%;
+    transition: transform 0.3s ease-in, border-color 0.3s ease-in;
+}
+
+.search:focus {
+    outline: none;
+    transform: scale(1.05);
+    border-color: #fff;
+}
+
+.search::placeholder {
+    color: #6c757d;
+}
+
+/* Ana İçerik */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 2rem 1rem;
+}
+
+.movie {
+    width: 300px;
+    margin: 1rem;
+    background-color: var(--assistant-color);
+    box-shadow: 0 5px 6px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px var(--shadow-color);
+}
+
+.movie img {
+    width: 100%;
+    border-bottom: 2px solid var(--highlight-color);
+}
+
+.movie-info {
+    color: var(--highlight-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.movie-info span {
+    background-color: var(--main-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 90%;
+    font-weight: bold;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Rating renkleri */
+.movie-info span.green {
+    color: green;
+}
+
+.movie-info span.yellow {
+    color: gold;
+}
+
+.movie-info span.red {
+    color: red;
+}
+
+/* Özet */
+.overview {
+    background-color: var(--hover-color);
+    color: #fff;
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(100%);
+    overflow-y: auto;
+    transition: transform 0.7s ease-in-out;
+}
+
+.movie:hover .overview {
+    transform: translateY(0);
+}
+
+.overview h3 {
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid var(--highlight-color);
+    width: 50%;
+}
+
+/* Footer */
+footer {
+    background-color: var(--assistant-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-top: 2px solid var(--highlight-color);
+}
+
+footer h3 {
+    letter-spacing: 5px;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px var(--shadow-color);
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer ul li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 1rem;
+}
+
+footer ul li a {
+    color: #2066a0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease-in;
+}
+
+footer ul li a:hover {
+    color: var(--highlight-color);
+    text-decoration: underline;
+}
+
+footer small {
+    margin-top: 0.5rem;
+    color: #8197a4;
+    font-size: 0.8rem;
+}
